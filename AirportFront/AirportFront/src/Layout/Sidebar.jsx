@@ -21,8 +21,12 @@ const drawerWidth = 240;
 const Sidebar = () => {
   const menuItems = [
     { text: 'Home', icon: <HomeIcon />, path: '/' },
-
+    { text: 'Airport', icon: <AirportIcon />, path: '/Airport' },
+    { text: 'Plane', icon: <PlaneIcon />, path: '/Plane' },
+    { text: 'Flight', icon: <FlightIcon />, path: '/Flight' },
   ];
+  
+
 
   return (
     <Drawer
