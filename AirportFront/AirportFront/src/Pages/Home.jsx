@@ -4,7 +4,7 @@ import { Card, CardContent, Typography, Container } from "@mui/material";
 const Home = () => {
   return (
     <Container>
-      <Typography variant="h2">Welcome to Our Airport</Typography>
+      <Typography variant="h2">Welcome to Airport</Typography>
       <Card>
         <CardContent>
           <Typography variant="h5">Airport</Typography>
