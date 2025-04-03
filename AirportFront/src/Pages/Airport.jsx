@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 
-const API_BASE_URL = "http://localhost:8080/api/airport";
+const API_BASE_URL = "http://localhost:8080/api/airport/";
 
 const Airport = () => {
 
@@ -47,12 +47,12 @@ return (
       <Box sx={{ my: 4 }}>
         <Typography
           variant="h4"
-          component="h1"
+          component="h5"
           gutterBottom
-          sx={{ color: "#F0F4F8" }}
-        >
+          sx={{ color: "#000000" }}>
          Airports List
         </Typography>
+
         <Grid container spacing={2}>
           {airport.map((airport) => (
             <Grid item xs={12} sm={6} md={4} key={airport.id}>
@@ -81,16 +81,15 @@ return (
         variant="contained"
         color="primary"
         style={{ margin: "10px" }}
-        onClick={deleteAirport}
+        onClick={deleteAirport()}
       >
         Back
       </Button>
-                  <Typography variant="body2" sx={{ color: "#B0B8C1" }}>
-                   code:  {airport.code}
+                  <Typography variant="body2" sx={{ color: "#B0B8C" }}>
+                   id: {airport.di}
          </Typography >
 
-                </CardContent>
-               
+                </CardContent>  
               </Card>
             </Grid>
           ))}
