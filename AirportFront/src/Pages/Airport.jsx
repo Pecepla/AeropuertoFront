@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+;
 import {
   Card,
   CardContent,
@@ -7,11 +8,12 @@ import {
   Button,
   Container,
   Box,
-  Grid,
+  Grid
 } from "@mui/material";
 
 
-const API_BASE_URL = "http://localhost:8080/api/airport/";
+const API_BASE_URL = "http://localhost:8080/api/airport";
+
 
 const Airport = () => {
 
@@ -21,25 +23,28 @@ const [airport , setAirport] = useState([]);
 
 const fetchAirport = async () => {
   try {
-    const response = await axios.get(API_BASE_URL);
+    console.log("fetch")
+    const response = await axios.get(`http://localhost:8080/api/airport`);
     setAirport(response.data);
+    console.log(response.data)
   } catch (error) {
     console.error("Error fetching :Airport", error);
   }
 };
 
-const deleteAirport = async (id) => {
+/*const deleteAirport = async (id) => {
   try {
-    await axios.delete(API_BASE_URL);
+    await axios.delete(API_BASE_URL2);
     setAirport(airport.filter((airport) => airport.id !== id));
   } catch (error) {
     console.error("Error deleting book:", error);
   }
-};
+};*/
 
 useEffect(() => {
   fetchAirport();
 }, []);
+
 
 return (
  
@@ -72,22 +77,20 @@ return (
                   <Typography
                     variant="h6"
                     component="div"
-                    sx={{ color: "#F0F4F8" }}
+                    sx={{ color: "#000000" }}
                   >
                     {airport.city}
                   </Typography>
                 
-                  <Button
-        variant="contained"
-        color="primary"
-        style={{ margin: "10px" }}
-        onClick={deleteAirport()}
-      >
-        Back
-      </Button>
-                  <Typography variant="body2" sx={{ color: "#B0B8C" }}>
-                   id: {airport.di}
+              
+                  <Typography variant="body2" sx={{ color: "#000000" }}>
+              
+                Name: {airport.name}<br></br>
+                City: {airport.city}<br></br>
+                Code: {airport.code}<br></br>
+
          </Typography >
+
 
                 </CardContent>  
               </Card>
@@ -99,5 +102,7 @@ return (
     
   );
 }
+
+
 
 export default Airport;
