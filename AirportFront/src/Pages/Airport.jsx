@@ -32,14 +32,14 @@ const fetchAirport = async () => {
   }
 };
 
-/*const deleteAirport = async (id) => {
+const deleteAirport = async (id) => {
   try {
     await axios.delete(API_BASE_URL2);
     setAirport(airport.filter((airport) => airport.id !== id));
   } catch (error) {
     console.error("Error deleting book:", error);
   }
-};*/
+};
 
 useEffect(() => {
   fetchAirport();
@@ -72,7 +72,9 @@ return (
                     boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
                   },
                 }}
+                
               >
+                
                 <CardContent>
                   <Typography
                     variant="h6"
@@ -82,15 +84,16 @@ return (
                     {airport.city}
                   </Typography>
                 
-              
+          
                   <Typography variant="body2" sx={{ color: "#000000" }}>
-              
+                
                 Name: {airport.name}<br></br>
                 City: {airport.city}<br></br>
                 Code: {airport.code}<br></br>
+       
 
          </Typography >
-
+         <Button variant="outlined"  onClick={() => deleteAirport(airport.id)}></Button>
 
                 </CardContent>  
               </Card>
@@ -101,6 +104,7 @@ return (
     </Container>
     
   );
+  
 }
 
 
