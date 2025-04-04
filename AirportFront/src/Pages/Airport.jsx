@@ -45,10 +45,10 @@ const updateAirport = (airport) => {
 };    
 
 
-
-const createAirport = () => {
-  
-};    
+const CreateAirport = () => {
+  navigate("/Airport/CreateAirport");
+};
+   
 
 useEffect(() => {
   fetchAirport();
@@ -67,7 +67,7 @@ return (
           sx={{ color: "#000000" }}>
          Airports List
         </Typography>
-        <Button  variant="contained"  onClick={() => deleteAirport(airport.id)}>
+        <Button  variant="contained"  onClick={() => CreateAirport(airport)}>
          create
          </Button>
         <Grid container spacing={2}>
@@ -87,7 +87,7 @@ return (
                 
               >
                 
-                <CardContent>
+                  <CardContent>
                   <Typography
                     variant="h6"
                     component="div"

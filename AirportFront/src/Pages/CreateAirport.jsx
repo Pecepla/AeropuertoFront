@@ -1,61 +1,56 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { TextField, Button, Paper } from "@mui/material";
 import axios from "axios";
-import {
-    TextField,
-    Button,
-    Paper,
-    Typography,
-  } from "@mui/material";
 
-
-
-  
-const  UpdateForm = () => {
+const CreateAirport = () => {
  
+
   const location = useLocation();
   const navigate = useNavigate();
- 
-  const airport = location.state?.airport || {}; 
 
   const [formData, setFormData] = useState({
-    id: airport.id || "",
-    name: airport.name || "",
-    city: airport.city || "",
-    code: airport.code || "",
-    country: airport.country || "",
+    id: "",
+    name: "",
+    city: "",
+    code: "",
+    country: "",
    
   });
 
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/airport/${airport.id}`, formData);
-      alert("Airport updated successfully!");
+      await axios.post(`http://localhost:8080/api/airport/` , formData);
+      alert("Airport created successfully!");
       navigate("../Airport"); 
+    debugger;
     } catch (error) {
-      console.error("Error updating Airport:", error);
+      console.error("Error creating Airport:", error);
+      alert("Failed to create Airport.");
+
     }
   };
 
   return (
-   
     <Paper style={{ padding: "20px", maxWidth: "500px", margin: "20px auto" }}>
-      <Typography variant="h5">Update User</Typography>
+      <h2>Create Airport</h2>
       <form onSubmit={handleSubmit}>
-        <TextField
+      <TextField
           label="id"
           name="id"
           value={formData.id}
           onChange={handleChange}
           fullWidth
           margin="normal"
-         
+          required
         />
         <TextField
           label="name"
@@ -64,7 +59,7 @@ const  UpdateForm = () => {
           onChange={handleChange}
           fullWidth
           margin="normal"
-        
+          required
         />
         <TextField
           label="city"
@@ -86,17 +81,18 @@ const  UpdateForm = () => {
         <TextField
           label="country"
           name="country"
+        
           value={formData.country}
           onChange={handleChange}
+          fullWidth
           margin="normal"
         />
-  
         <Button type="submit" variant="contained" color="primary">
-          Update Airport
+          Create Book
         </Button>
       </form>
     </Paper>
   );
 };
 
-export default UpdateForm;
+export default CreateAirport;
