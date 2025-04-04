@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-;
+
 import {
   Card,
   CardContent,
@@ -16,6 +17,7 @@ const Airport = () => {
 
 const [airport , setAirport] = useState([]);
 
+const navigate = useNavigate();
 
 
 const fetchAirport = async () => {
@@ -37,8 +39,15 @@ const deleteAirport = async (id) => {
     console.error("Error deleting book:", error);
   }
 };
+
+const updateAirport = (airport) => {
+  navigate(`/Airport/UpdateForm/${airport.id}`, { state: {airport}});
+};    
+
+
+
 const createAirport = () => {
-  navigate("/Airports/create");
+  
 };    
 
 useEffect(() => {
@@ -86,20 +95,19 @@ return (
                   >
                     {airport.city}
                   </Typography>
-                
-          
                   <Typography variant="body2" sx={{ color: "#000000" }}>
                 
                 Name: {airport.name}<br></br>
                 City: {airport.city}<br></br>
                 Code: {airport.code}<br></br>
-       
+                Country {airport.country} <br></br>
+                
 
          </Typography >
          <Button variant="contained" color="secondary" onClick={() => deleteAirport(airport.id)}>
           Delete
          </Button> 
-         <Button variant="contained" color="success" onClick={() => updateAirport(airport.id)}>
+         <Button variant="contained" color="success" onClick={() => updateAirport(airport)}>
          Update
          </Button>
 

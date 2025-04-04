@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 import Airport from "./Pages/Airport";
 import Plane from "./Pages/Plane";
 import Flight from "./Pages/Flight";
-
+import UpdateAirportForm from "./Pages/UpdateForm";
 
 
 const App = () => {
@@ -20,6 +20,7 @@ const App = () => {
             <Route path="/Airport" element={<Airport />} />
             <Route path="/Plane" element={<Plane />} />
             <Route path="/Flight" element={<Flight />} /> 
+            <Route path="/Airport/UpdateForm/:id" element={<UpdateAirportForm />} /> 
           </Routes>
         </div>
       </div>
