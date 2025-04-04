@@ -6,6 +6,8 @@ import Airport from "./Pages/Airport";
 import Plane from "./Pages/Plane";
 import Flight from "./Pages/Flight";
 
+
+
 const App = () => {
   return (
     <Router>
@@ -17,7 +19,7 @@ const App = () => {
             <Route path="/Home" element={<Home />} />
             <Route path="/Airport" element={<Airport />} />
             <Route path="/Plane" element={<Plane />} />
-            <Route path="/Flight" element={<Flight />} />
+            <Route path="/Flight" element={<Flight />} /> 
           </Routes>
         </div>
       </div>

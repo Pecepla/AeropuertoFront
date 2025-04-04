@@ -12,9 +12,6 @@ import {
 } from "@mui/material";
 
 
-const API_BASE_URL = "http://localhost:8080/api/airport";
-
-
 const Airport = () => {
 
 const [airport , setAirport] = useState([]);
@@ -23,7 +20,6 @@ const [airport , setAirport] = useState([]);
 
 const fetchAirport = async () => {
   try {
-    console.log("fetch")
     const response = await axios.get(`http://localhost:8080/api/airport`);
     setAirport(response.data);
     console.log(response.data)
@@ -34,15 +30,20 @@ const fetchAirport = async () => {
 
 const deleteAirport = async (id) => {
   try {
-    await axios.delete(API_BASE_URL2);
+  
+    await axios.delete(`http://localhost:8080/api/airport/${id}`);
     setAirport(airport.filter((airport) => airport.id !== id));
   } catch (error) {
     console.error("Error deleting book:", error);
   }
 };
+const createAirport = () => {
+  navigate("/Airports/create");
+};    
 
 useEffect(() => {
   fetchAirport();
+
 }, []);
 
 
@@ -57,7 +58,9 @@ return (
           sx={{ color: "#000000" }}>
          Airports List
         </Typography>
-
+        <Button  variant="contained"  onClick={() => deleteAirport(airport.id)}>
+         create
+         </Button>
         <Grid container spacing={2}>
           {airport.map((airport) => (
             <Grid item xs={12} sm={6} md={4} key={airport.id}>
@@ -93,7 +96,12 @@ return (
        
 
          </Typography >
-         <Button variant="outlined"  onClick={() => deleteAirport(airport.id)}></Button>
+         <Button variant="contained" color="secondary" onClick={() => deleteAirport(airport.id)}>
+          Delete
+         </Button> 
+         <Button variant="contained" color="success" onClick={() => updateAirport(airport.id)}>
+         Update
+         </Button>
 
                 </CardContent>  
               </Card>
