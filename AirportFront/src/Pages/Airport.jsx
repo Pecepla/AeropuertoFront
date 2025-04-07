@@ -15,24 +15,27 @@ import {
 
 const Airport = () => {
 
+  
 const [airport , setAirport] = useState([]);
+
 
 const navigate = useNavigate();
 
 
 const fetchAirport = async () => {
+ 
   try {
-    const response = await axios.get(`http://localhost:8080/api/airport`);
+    const response = await axios.get("http://localhost:8080/api/airport/");
     setAirport(response.data);
     console.log(response.data)
   } catch (error) {
-    console.error("Error fetching :Airport", error);
+    console.error("Error fetching :Airport", error) ;
   }
 };
 
 const deleteAirport = async (id) => {
   try {
-  
+
     await axios.delete(`http://localhost:8080/api/airport/${id}`);
     setAirport(airport.filter((airport) => airport.id !== id));
   } catch (error) {
@@ -42,13 +45,13 @@ const deleteAirport = async (id) => {
 
 const updateAirport = (airport) => {
   navigate(`/Airport/UpdateForm/${airport.id}`, { state: {airport}});
-};    
+};
 
-
+ 
 const CreateAirport = () => {
   navigate("/Airport/CreateAirport");
 };
-   
+
 
 useEffect(() => {
   fetchAirport();
@@ -122,7 +125,5 @@ return (
   );
   
 }
-
-
 
 export default Airport;
