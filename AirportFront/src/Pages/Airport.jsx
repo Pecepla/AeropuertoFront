@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "axios"
 
 import {
   Card,
@@ -17,17 +17,14 @@ const Airport = () => {
 
   
 const [airport , setAirport] = useState([]);
-
-
 const navigate = useNavigate();
 
 
 const fetchAirport = async () => {
  
   try {
-    const response = await axios.get("http://localhost:8080/api/airport/");
+    const response = await axios.get(`http://localhost:8080/api/airport/`);
     setAirport(response.data);
-    console.log(response.data)
   } catch (error) {
     console.error("Error fetching :Airport", error) ;
   }
@@ -47,7 +44,6 @@ const updateAirport = (airport) => {
   navigate(`/Airport/UpdateForm/${airport.id}`, { state: {airport}});
 };
 
- 
 const CreateAirport = () => {
   navigate("/Airport/CreateAirport");
 };
