@@ -41,7 +41,7 @@ const deletePlane = async (id) => {
 };
 
 const updatePlane = (plane) => {
-  navigate(`/Plane/${plane.id}`, { state: {plane}});
+  navigate(`/Plane/UpdatePlaneForm/${plane.id}`, { state: {plane}});
 };
 
 const CreatePlane = () => {
@@ -70,8 +70,8 @@ return (
          create
          </Button>
         <Grid container spacing={2}>
-          {airport.map((airport) => (
-            <Grid item xs={12} sm={6} md={4} key={airport.id}>
+          {plane.map((plane) => (
+            <Grid item xs={12} sm={6} md={4} key={plane.id}>
               <Card
                 sx={{
                   backgroundColor: "rgba(240, 244, 248, 0.1)",
@@ -95,7 +95,8 @@ return (
                     {plane.model}
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
-                
+
+               id : {plane.id}<br></br>
                Model: {plane.model}<br></br>
                manufacture: {plane.manufacture}<br></br>
                registrationNumber: {plane.registrationNumber}<br></br>

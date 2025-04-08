@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import { TextField, Button, Paper } from "@mui/material";
 import axios from "axios";
 
 const CreateAirport = () => {
  
-
-  const location = useLocation();
-  const navigate = useNavigate();
+//const location = useLocation();
+ const navigate = useNavigate();
+ 
+ //const airport = location.state?.airport || {}; 
 
   const [formData, setFormData] = useState({
     id: "",
@@ -28,10 +30,10 @@ const CreateAirport = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/api/airport/` , formData);
+      await axios.post(`http://localhost:8080/api/airport` , formData);
       alert("Airport created successfully!");
       navigate("../Airport"); 
-    debugger;
+    
     } catch (error) {
       console.error("Error creating Airport:", error);
       alert("Failed to create Airport.");
@@ -88,7 +90,7 @@ const CreateAirport = () => {
           margin="normal"
         />
         <Button type="submit" variant="contained" color="primary">
-          Create Book
+          Create Airport
         </Button>
       </form>
     </Paper>

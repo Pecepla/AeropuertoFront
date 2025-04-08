@@ -7,6 +7,7 @@ import Plane from "./Pages/Plane";
 import Flight from "./Pages/Flight";
 import UpdateAirportForm from "./Pages/UpdateForm";
 import CreateAirport from  "./Pages/CreateAirport";
+import UpdatePlaneForm from  "./Pages/UpdatePlaneForm";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/Flight" element={<Flight />} /> 
             <Route path="/Airport/UpdateForm/:id" element={<UpdateAirportForm />} /> 
             <Route path="/Airport/CreateAirport" element={<CreateAirport />} />
+            <Route path="/Plane/UpdatePlaneForm/:id" element={<UpdatePlaneForm />} /> 
           </Routes>
         </div>
       </div>
