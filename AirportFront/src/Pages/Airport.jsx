@@ -23,10 +23,10 @@ const navigate = useNavigate();
 const fetchAirport = async () => {
  
   try {
-    const response = await axios.get(`http://localhost:8080/api/airport/`);
+    const response = await axios.get(`http://localhost:8080/api/airport `);
     setAirport(response.data);
   } catch (error) {
-    console.error("Error fetching :Airport", error) ;
+    console.error("Error fetching: Airport", error) ;
   }
 };
 
