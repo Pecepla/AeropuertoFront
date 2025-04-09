@@ -64,7 +64,7 @@ return (
           component="h5"
           gutterBottom
           sx={{ color: "#000000" }}>
-         Airports List
+         Plane List
         </Typography>
         <Button  variant="contained"  onClick={() => CreatePlane(plane)}>
          create
