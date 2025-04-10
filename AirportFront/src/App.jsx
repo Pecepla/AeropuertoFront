@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Airport from "./Pages/Airport";
 import Plane from "./Pages/Plane";
 import Flight from "./Pages/Flight";
+import Passengers from "./Pages/Passengers";
 import UpdateAirportForm from "./Pages/UpdateForm";
 import CreateAirport from  "./Pages/CreateAirport";
 import UpdatePlaneForm from  "./Pages/UpdatePlaneForm";
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/Airport" element={<Airport />} />
             <Route path="/Plane" element={<Plane />} />
             <Route path="/Flight" element={<Flight />} /> 
+            <Route path="/Passengers" element={<Passengers />} /> 
             <Route path="/Airport/UpdateForm/:id" element={<UpdateAirportForm />} /> 
             <Route path="/Airport/CreateAirport" element={<CreateAirport />} />
             <Route path="/Plane/UpdatePlaneForm/:id" element={<UpdatePlaneForm />} /> 
