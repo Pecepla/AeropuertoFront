@@ -100,10 +100,13 @@ return (
                     component="div"
                     sx={{ color: "#000000" }}
                   >
-                    {flight.id}
+                
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
-
+             Number: {flight.flightNumber}<br></br>
+             Departure: {flight.departureTure}<br></br>
+             Arrival: {flight.arrivalTime}<br></br>
+             Status: {flight.status}<br></br>
              
 
          </Typography >
