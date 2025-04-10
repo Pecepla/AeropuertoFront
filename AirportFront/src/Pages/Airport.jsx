@@ -12,13 +12,21 @@ import {
   Grid
 } from "@mui/material";
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FolderIcon from '@mui/icons-material/Folder';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+
 
 const Airport = () => {
 
   
 const [airport , setAirport] = useState([]);
 const navigate = useNavigate();
-
+const [value, setValue] = React.useState('recents');
 
 const fetchAirport = async () => {
  
@@ -57,8 +65,8 @@ useEffect(() => {
 
 return (
  
-  <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
+  <Container maxWidth="h6">
+      <Box sx={{ my: 12 }}>
         <Typography
           variant="h4"
           component="h5"
@@ -96,10 +104,10 @@ return (
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
                 
-                Name: {airport.name}<br></br>
-                City: {airport.city}<br></br>
-                Code: {airport.code}<br></br>
-                Country {airport.country} <br></br>
+                 {airport.name}<br></br>
+                {airport.city}<br></br>
+                {airport.code}<br></br>
+                {airport.country} <br></br>
                 
 
          </Typography >
@@ -111,15 +119,38 @@ return (
          </Button>
 
                 </CardContent>  
+
               </Card>
+
+
+
             </Grid>
           ))}
         </Grid>
+     
+       
       </Box>
-    </Container>
-    
-  );
-  
+   
+      <BottomNavigation sx={{ width: 500 }} value={value}>
+  <BottomNavigationAction
+    label="Recents"
+    value="recents"
+    icon={<RestoreIcon />}
+  />
+  <BottomNavigationAction
+    label="Favorites"
+    value="favorites"
+    icon={<FavoriteIcon />}
+  />
+  <BottomNavigationAction
+    label="Nearby"
+    value="nearby"
+    icon={<LocationOnIcon />}
+  />
+  <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+</BottomNavigation>
+</Container>
+    );
 }
 
 export default Airport;

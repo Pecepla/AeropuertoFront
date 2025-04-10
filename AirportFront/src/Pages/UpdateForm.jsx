@@ -19,7 +19,7 @@ const  UpdateForm = () => {
   const airport = location.state?.airport || {}; 
 
   const [formData, setFormData] = useState({
-    id: airport.id || "",
+   
     name: airport.name || "",
     city: airport.city || "",
     code: airport.code || "",
@@ -48,15 +48,7 @@ const  UpdateForm = () => {
     <Paper style={{ padding: "20px", maxWidth: "500px", margin: "20px auto" }}>
       <Typography variant="h5">Update User</Typography>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="id"
-          name="id"
-          value={formData.id}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-         
-        />
+      
         <TextField
           label="name"
           name="name"

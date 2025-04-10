@@ -24,7 +24,7 @@ const navigate = useNavigate();
 const fetchFlight = async () => {
  
   try {
-    const response = await axios.get(`http://localhost:8080/api/flight `);
+    const response = await axios.get(`http://localhost:8080/api/flight`);
     setFlight(response.data);
   } catch (error) {
     console.error("Error fetching: FLight", error) ;
@@ -59,13 +59,13 @@ useEffect(() => {
 return (
  
   <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
+      <Box sx={{ my: 12 }}>
         <Typography
           variant="h4"
           component="h5"
           gutterBottom
           sx={{ color: "#000000" }}>
-         Plane List
+        Flight List
         </Typography>
         <Button  variant="contained"  onClick={() => CreateFlight(flight)}>
          create

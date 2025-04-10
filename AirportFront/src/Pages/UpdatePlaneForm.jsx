@@ -49,15 +49,7 @@ const  UpdatePlaneForm = () => {
     <Paper style={{ padding: "20px", maxWidth: "500px", margin: "20px auto" }}>
       <Typography variant="h5">Update Plane</Typography>
       <form onSubmit={handleSubmit}>
-      <TextField
-          label="id"
-          name="id"
-          value={formData.id}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        
-        />
+   
 
         <TextField
           label="model"

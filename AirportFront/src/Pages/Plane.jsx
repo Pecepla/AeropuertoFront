@@ -12,18 +12,24 @@ import {
   Grid
 } from "@mui/material";
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FolderIcon from '@mui/icons-material/Folder';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Plane = () => {
 
   
 const [plane , setPlane] = useState([]);
 const navigate = useNavigate();
-
+const [value, setValue] = React.useState('recents');
 
 const fetchPlane = async () => {
  
   try {
-    const response = await axios.get(`http://localhost:8080/api/planes `);
+    const response = await axios.get(`http://localhost:8080/api/planes`);
     setPlane(response.data);
   } catch (error) {
     console.error("Error fetching: Plane", error) ;
@@ -45,7 +51,7 @@ const updatePlane = (plane) => {
 };
 
 const CreatePlane = () => {
-  navigate("/CreatePlane");
+  navigate(`/Plane/CreatePlane`);
 };
 
 
@@ -57,8 +63,8 @@ useEffect(() => {
 
 return (
  
-  <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
+  <Container maxWidth="h6">
+      <Box sx={{ my: 12 }}>
         <Typography
           variant="h4"
           component="h5"
@@ -96,7 +102,7 @@ return (
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
 
-               id : {plane.id}<br></br>
+              
                Model: {plane.model}<br></br>
                manufacture: {plane.manufacture}<br></br>
                registrationNumber: {plane.registrationNumber}<br></br>
@@ -117,6 +123,25 @@ return (
           ))}
         </Grid>
       </Box>
+      
+      <BottomNavigation sx={{ width: 500 }} value={value}>
+  <BottomNavigationAction
+    label="Recents"
+    value="recents"
+    icon={<RestoreIcon />}
+  />
+  <BottomNavigationAction
+    label="Favorites"
+    value="favorites"
+    icon={<FavoriteIcon />}
+  />
+  <BottomNavigationAction
+    label="Nearby"
+    value="nearby"
+    icon={<LocationOnIcon />}
+  />
+  <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+</BottomNavigation>
     </Container>
     
   );
