@@ -49,7 +49,7 @@ const deleteFlight = async (id) => {
 };
 
 const updateFlight = (flight) => {
-  navigate(`/Flight/UpdateFlifgtForm/${flight.id}`, { state: {flight}});
+  navigate(`/Flight/UpdateFlightsForm/${flight.id}`, { state: {flight}});
 };
 
 const CreateFlight= () => {
@@ -141,6 +141,7 @@ return (
   />
   <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
 </BottomNavigation>
+
     </Container>
     
   );
