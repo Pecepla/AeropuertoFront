@@ -53,7 +53,7 @@ const updateFlight = (flight) => {
 };
 
 const CreateFlight= () => {
-  navigate("/CreateFlight");
+  navigate("/Flight/CreateFlight/");
 };
 
 

@@ -41,36 +41,35 @@ const CreateFlight = () => {
   
 return (
      <Paper style={{ padding: "20px", maxWidth: "500px", margin: "20px auto" }}>
-           <h2>Create Plane</h2>
+           <h2>Create Flight</h2>
            <form onSubmit={handleSubmit}>
          <TextField
-               label="ArrivalTime"
-               name="ArrivalTime"
+               label="arrivalTime"
+               name="arrivalTime"
                value={formData.arrivalTime}
                onChange={handleChange}
                fullWidth
                margin="normal"
-               required
              />
              <TextField
-               label="Departure"
-               name="Departure"
+               label="departure"
+               name="departure"
                value={formData.departure}
                onChange={handleChange}
                fullWidth
                margin="normal"
              />
              <TextField
-               label="ArrivalAirportId"
-               name="ArrivalAirportId"
+               label="arrivalAirportId"
+               name="arrivalAirportId"
                value={formData.arrivalAirportId}
                onChange={handleChange}
                fullWidth
                margin="normal"
              />
              <TextField
-               label="DepartureAirportId"
-               name="DepartureAirportId"
+               label="departureAirportId"
+               name="departureAirportId"
                value={formData.departureAirportId}
                onChange={handleChange}
                fullWidth
@@ -86,33 +85,34 @@ return (
              />
 
          <TextField
-               label="PlaneId"
-               name="PlaneId"
+               label="planeId"
+               name="planeId"
                value={formData.planeId}
-              onChange={handleChange}
+               onChange={handleChange}
                fullWidth
                margin="normal"
              />
 
             <TextField
-               label="FlightNumber"
-               name="FlightNumber"
+               label="flightNumber"
+               name="flightNumber"
                value={formData.flightNumber}
               onChange={handleChange}
                fullWidth
                margin="normal"
              />
+
              <TextField
-               label="Status"
-               name="Status"
+               label="status"
+               name="status"
                value={formData.status}
               onChange={handleChange}
                fullWidth
                margin="normal"
              />
-
+<br></br>
              <Button type="submit" variant="contained" color="primary">
-               Create Plane
+               Create Flight
              </Button>
            </form>
          </Paper>
