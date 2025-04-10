@@ -9,7 +9,8 @@ import {
   Button,
   Container,
   Box,
-  Grid
+  Grid,
+  ButtonBase
 } from "@mui/material";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -66,7 +67,7 @@ useEffect(() => {
 return (
  
   <Container maxWidth="h6">
-      <Box sx={{ my: 12 }}>
+      <Box md={{ my: 100 }}>
         <Typography
           variant="h4"
           component="h5"
@@ -74,9 +75,10 @@ return (
           sx={{ color: "#000000" }}>
          Airports List
         </Typography>
-        <Button  variant="contained"  onClick={() => CreateAirport(airport)}>
+        <Button variant="contained"  onClick={() => CreateAirport(airport)}>
          create
          </Button>
+      </Box>
         <Grid container spacing={2}>
           {airport.map((airport) => (
             <Grid item xs={12} sm={6} md={4} key={airport.id}>
@@ -89,6 +91,7 @@ return (
                   "&:hover": {
                     transform: "translateY(-5px)",
                     boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
+                  
                   },
                 }}
                 
@@ -98,16 +101,16 @@ return (
                   <Typography
                     variant="h6"
                     component="div"
-                    sx={{ color: "#000000" }}
+                   sx={{ color: "#000000" }}
                   >
                     {airport.city}
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
                 
-                 {airport.name}<br></br>
-                {airport.city}<br></br>
-                {airport.code}<br></br>
-                {airport.country} <br></br>
+                Name: {airport.name}<br></br>
+                City:   {airport.city}<br></br>
+                Code:  {airport.code}<br></br>
+                Country:   {airport.country}<br></br>
                 
 
          </Typography >
@@ -122,16 +125,12 @@ return (
 
               </Card>
 
-
+       
 
             </Grid>
           ))}
         </Grid>
-     
-       
-      </Box>
-   
-      <BottomNavigation sx={{ width: 500 }} value={value}>
+      <BottomNavigation md={{ width: 500 }} value={value}>
   <BottomNavigationAction
     label="Recents"
     value="recents"

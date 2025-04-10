@@ -124,7 +124,7 @@ return (
         </Grid>
       </Box>
       
-      <BottomNavigation sx={{ width: 500 }} value={value}>
+      <BottomNavigation md={{ width: 500 }} value={value}>
   <BottomNavigationAction
     label="Recents"
     value="recents"
