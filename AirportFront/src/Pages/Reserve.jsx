@@ -25,7 +25,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Reserve = () => {
 
   
-const [reserve , setReserve] = useState([]);
+const [reserve, setReserve] = useState([]);
 const navigate = useNavigate();
 const [value, setValue] = React.useState('recents');
 
@@ -43,9 +43,9 @@ const deleteReserve = async (id) => {
   try {
 
     await axios.delete(`http://localhost:8080/api/reserve/${id}`);
-    setAirport(reserve.filter((reserve) => reserve.id !== id));
+    setAirport(reserve.filter((reserve) =>reserve.id !== id));
   } catch (error) {
-    console.error("Error deleting reserve:", error);
+    console.error("Error deleting Reserve:", error);
   }
 };
 
@@ -75,12 +75,12 @@ return (
           sx={{ color: "#000000" }}>
         ReserveList List
         </Typography>
-        <Button variant="contained"  onClick={() => CreateReserve(reserve.reserveCode)}>
+        <Button variant="contained"  onClick={() => CreateReserve(reserve.id)}>
          create
          </Button>
       </Box>
         <Grid container spacing={2}>
-          {reserve.map((reserve) => (
+                {reserve.map((reserve) => (
             <Grid item xs={12} sm={6} md={4} key={reserve.id}>
               <Card
                 sx={{
@@ -96,7 +96,7 @@ return (
                 }}
                 
               >
-               
+               {reserve.id}
                   <CardContent>
                   <Typography
                     variant="h6"
@@ -107,9 +107,9 @@ return (
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
                 
-               Reserve:  {reserve.reserveCode}
-               Passenger:   {reserve.passenger}<br></br>
-               flight:  {reserve.flight}<br></br>
+        
+               Passenger:{reserve.passenger_id}<br></br>
+               flight:  {reserve.flight_id}<br></br>
                state:   {reserve.state}<br></br>
                 
 
