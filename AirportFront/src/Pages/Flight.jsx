@@ -65,8 +65,8 @@ useEffect(() => {
 
 return (
  
-  <Container maxWidth="md">
-      <Box sx={{ my: 12 }}>
+  <Container maxWidth="h6">
+      <Box md={{ my: 12 }}>
         <Typography
           variant="h4"
           component="h5"
@@ -79,7 +79,7 @@ return (
          </Button>
         <Grid container spacing={2}>
           {flight.map((flight) => (
-            <Grid item xs={12} sm={6} md={4} key={flight.id}>
+           <Grid item xs={12} sm={6} md={4} key={flight.id}>
               <Card
                 sx={{
                   backgroundColor: "rgba(240, 244, 248, 0.1)",

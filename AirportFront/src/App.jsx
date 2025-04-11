@@ -12,6 +12,8 @@ import UpdatePlaneForm from  "./Pages/UpdatePlaneForm";
 import CreatePlane from  "./Pages/CreatePlane";
 import UpdateFlightsForm from  "./Pages/UpdateFlightsForm";
 import CreateFlight from  "./Pages/CreateFlight";
+import CreatePassenger from  "./Pages/CreatePassengers";
+import UpdatePassenger from  "./Pages/UpdatePassenger";
 
 const App = () => {
   return (
@@ -31,7 +33,9 @@ const App = () => {
             <Route path="/Plane/UpdatePlaneForm/:id" element={<UpdatePlaneForm />} /> 
             <Route path="/Plane/CreatePlane" element={<CreatePlane />} /> 
             <Route path="/Flight/UpdateFlightsForm/:id" element={<UpdateFlightsForm/>} /> 
-            <Route path="/Flight/CreateFlight" element={<CreateFlight />} /> 
+            <Route path="/Flight/CreateFlight" element={<CreateFlight />} />
+            <Route path="/Passenger/CreatePassenger" element={<CreatePassenger />} /> 
+            <Route path="/Passenger/UpdatePassenger/:id" element={<UpdatePassenger />} /> 
           </Routes>
         </div>
       </div>

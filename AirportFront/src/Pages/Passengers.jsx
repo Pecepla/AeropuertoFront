@@ -36,7 +36,7 @@ const fetchPassenger = async () => {
   }
 };
 
-const deletePassenger = async (id) => {
+const deleplanetePassenger = async (id) => {
   try {
 
     await axios.delete(`http://localhost:8080/api/passenger/${id}`);
@@ -103,7 +103,7 @@ return (
                   <Typography variant="body2" sx={{ color: "#000000" }}>
 
      name: {passenger.name}<br></br>
-     lastname:{passenger.lstname}<br></br>
+     lastname:{passenger.lastname}<br></br>
      passportNumber: {passenger.passportNumber}<br></br>
      nationality:{passenger.nationality}<br></br>
      age: {passenger.age}<br></br>
