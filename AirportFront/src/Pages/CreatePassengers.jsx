@@ -9,9 +9,9 @@ const CreatePassengers = () => {
  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    id: "",
-    name: "",
-     lastnamee:"",
+     id: "",
+     name: "",
+     lastname: "",
      passportNumber: "",
      nationality: "",
      age: "",
@@ -30,7 +30,7 @@ const CreatePassengers = () => {
     try {
       await axios.post(`http://localhost:8080/api/passenger` , formData);
       alert("Passenger created successfully!");
-      navigate("../Passenger"); 
+      navigate("../Passengers"); 
     
     } catch (error) {
       console.error("Error creating Plane:", error);
@@ -41,11 +41,11 @@ const CreatePassengers = () => {
 
   return (
     <Paper style={{ padding: "20px", maxWidth: "500px", margin: "20px auto" }}>
-      <h2>Create Plane</h2>
+      <h2>Create Passenger</h2>
       <form onSubmit={handleSubmit}>
     <TextField
           label="name"
-          name=" name"
+          name="name"
           value={formData.name}
           onChange={handleChange}
           fullWidth
@@ -53,9 +53,9 @@ const CreatePassengers = () => {
           required
         />
         <TextField
-          label="lastnamee"
-          name="lastnamee"
-          value={formData.lastnamee}
+          label="lastname"
+          name="lastname"
+          value={formData.lastname}
           onChange={handleChange}
           fullWidth
           margin="normal"
@@ -71,7 +71,7 @@ const CreatePassengers = () => {
         />
         <TextField
           label="nationality"
-          name=" nationality"
+          name="nationality"
           value={formData.nationality}
           onChange={handleChange}
           fullWidth

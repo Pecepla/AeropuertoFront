@@ -9,7 +9,8 @@ import {
   Button,
   Container,
   Box,
-  Grid
+  Grid,
+
 } from "@mui/material";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -19,44 +20,46 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const Passengers = () => {
+
+
+const Reserve = () => {
 
   
-const [passenger , setPassenger] = useState([]);
+const [reserve , setReserve] = useState([]);
 const navigate = useNavigate();
 const [value, setValue] = React.useState('recents');
 
-const fetchPassenger = async () => {
+const fetchReserve = async () => {
  
   try {
-    const response = await axios.get(`http://localhost:8080/api/passenger`);
-    setPassenger(response.data);
+    const response = await axios.get(`http://localhost:8080/api/reserve`);
+    setReserve(response.data);
   } catch (error) {
-      console.error("Error fetching: Passenger", error) ;
+    console.error("Error fetching: Reserve", error) ;
   }
 };
 
-const deletePassenger = async (id) => {
+const deleteReserve = async (id) => {
   try {
 
-    await axios.delete(`http://localhost:8080/api/passenger/${id}`);
-    setPassenger(passenger.filter((passenger) => passenger.id !== id));
+    await axios.delete(`http://localhost:8080/api/reserve/${id}`);
+    setAirport(reserve.filter((reserve) => reserve.id !== id));
   } catch (error) {
-    console.error("Error deleting Passenger", error);
+    console.error("Error deleting reserve:", error);
   }
 };
 
-const updatePassenger = (passenger) => {
-  navigate(`/Passengers/UpdatePassenger/${passenger.id}`, { state: {passenger}});
-}
+const updateReserve = (airport) => {
+  navigate(`/Reservet/UpdateReserve/${reserve.id}`, { state: {reserve}});
+};
 
-const CreatePassenger= () => {
-  navigate(`/Passengers/CreatePassengers`);
+const CreateReserve = () => {
+  navigate("/Reserve/CreateReserve");
 };
 
 
 useEffect(() => {
-    fetchPassenger();
+  fetchReserve();
 
 }, []);
 
@@ -64,20 +67,21 @@ useEffect(() => {
 return (
  
   <Container maxWidth="h6">
-      <Box sx={{ my: 12 }}>
+      <Box md={{ my: 100 }}>
         <Typography
           variant="h4"
           component="h5"
           gutterBottom
           sx={{ color: "#000000" }}>
-        Passengers List
+        ReserveList List
         </Typography>
-        <Button  variant="contained"  onClick={() => CreatePassenger(passenger)}>
+        <Button variant="contained"  onClick={() => CreateReserve(reserve.reserveCode)}>
          create
          </Button>
+      </Box>
         <Grid container spacing={2}>
-          {passenger.map((passenger) => (
-            <Grid item xs={12} sm={6} md={4} key={passenger.id}>
+          {reserve.map((reserve) => (
+            <Grid item xs={12} sm={6} md={4} key={reserve.id}>
               <Card
                 sx={{
                   backgroundColor: "rgba(240, 244, 248, 0.1)",
@@ -87,43 +91,45 @@ return (
                   "&:hover": {
                     transform: "translateY(-5px)",
                     boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
+                  
                   },
                 }}
                 
               >
-                
+               
                   <CardContent>
                   <Typography
                     variant="h6"
                     component="div"
-                    sx={{ color: "#000000" }}
+                   sx={{ color: "#000000" }}
                   >
-                  
+                    {reserve.id}
                   </Typography>
                   <Typography variant="body2" sx={{ color: "#000000" }}>
+                
+               Reserve:  {reserve.reserveCode}
+               Passenger:   {reserve.passenger}<br></br>
+               flight:  {reserve.flight}<br></br>
+               state:   {reserve.state}<br></br>
+                
 
-     name: {passenger.name}<br></br>
-     lastname:{passenger.lastname}<br></br>
-     passportNumber: {passenger.passportNumber}<br></br>
-     nationality:{passenger.nationality}<br></br>
-     age: {passenger.age}<br></br>
-     contactNumber:{passenger.contactNumber}<br></br>
-               
          </Typography >
-         <Button variant="contained" color="secondary" onClick={() => deletePassenger(passenger.id)}>
+         <Button variant="contained" color="secondary" onClick={() => deleteReserve(reserve.id)}>
           Delete
          </Button> 
-         <Button variant="contained" color="success" onClick={() => updatePassenger(passenger)}>
+         <Button variant="contained" color="success" onClick={() => updateReserve(reserve)}>
          Update
          </Button>
 
                 </CardContent>  
+
               </Card>
+
+       
+
             </Grid>
           ))}
         </Grid>
-      </Box>
-      
       <BottomNavigation md={{ width: 500 }} value={value}>
   <BottomNavigationAction
     label="Recents"
@@ -142,10 +148,8 @@ return (
   />
   <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
 </BottomNavigation>
-    </Container>
-    
-  );
-  
+</Container>
+    );
 }
 
-export default Passengers;
+export default Reserve;

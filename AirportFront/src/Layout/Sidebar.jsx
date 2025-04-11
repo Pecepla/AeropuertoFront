@@ -25,6 +25,7 @@ const Sidebar = () => {
     { text: 'Plane', icon: <PlaneIcon />, path: '/Plane' },
     { text: 'Flight', icon: <FlightIcon />, path: '/Flight' },
     { text: 'Passengers', icon: <FlightIcon />, path: '/Passengers' },
+    { text: 'Reserve', icon: <FlightIcon />, path: '/Reserve' },
   ];
   
 

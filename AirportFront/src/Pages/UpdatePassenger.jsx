@@ -15,12 +15,12 @@ const  UpdatePassenger = () => {
   const location = useLocation();
   const navigate = useNavigate();
  
-  const plane = location.state?.passenger  || {}; 
+  const passenger = location.state?.passenger  || {}; 
 
   const [formData, setFormData] = useState({
-   
-    name: passenger.name || "",
-     lastname: passemger.lastname || "",
+     id: passenger.id || "",
+     name: passenger.name || "",
+     lastname: passenger.lastname || "",
      passportNumber: passenger.passportNumbe || "",
      nationality: passenger.nationality || "",
      age: passenger.age || "",
@@ -36,9 +36,11 @@ const  UpdatePassenger = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+  
       await axios.put(`http://localhost:8080/api/passenger/${passenger.id}`, formData);
+    
       alert("Passenger updated successfully!");
-      navigate("../Passenger"); 
+      navigate("../Passengers"); 
     } catch (error) {
       console.error("Error updating Passenger:", error);
     }

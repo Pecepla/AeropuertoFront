@@ -45,7 +45,7 @@ const deleteAirport = async (id) => {
     await axios.delete(`http://localhost:8080/api/airport/${id}`);
     setAirport(airport.filter((airport) => airport.id !== id));
   } catch (error) {
-    console.error("Error deleting book:", error);
+    console.error("Error deleting Airport: ", error);
   }
 };
 

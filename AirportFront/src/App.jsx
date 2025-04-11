@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Airport from "./Pages/Airport";
 import Plane from "./Pages/Plane";
 import Flight from "./Pages/Flight";
+import Reserve from "./Pages/Reserve";
 import Passengers from "./Pages/Passengers";
 import UpdateAirportForm from "./Pages/UpdateForm";
 import CreateAirport from  "./Pages/CreateAirport";
@@ -12,8 +13,8 @@ import UpdatePlaneForm from  "./Pages/UpdatePlaneForm";
 import CreatePlane from  "./Pages/CreatePlane";
 import UpdateFlightsForm from  "./Pages/UpdateFlightsForm";
 import CreateFlight from  "./Pages/CreateFlight";
-import CreatePassenger from  "./Pages/CreatePassengers";
-import UpdatePassenger from  "./Pages/UpdatePassenger";
+import CreatePassengers from  "./Pages/CreatePassengers";
+import UpdatePassengers from  "./Pages/UpdatePassenger";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/Airport" element={<Airport />} />
             <Route path="/Plane" element={<Plane />} />
             <Route path="/Flight" element={<Flight />} /> 
+            <Route path="/Reserve" element={<Reserve />} /> 
             <Route path="/Passengers" element={<Passengers />} /> 
             <Route path="/Airport/UpdateForm/:id" element={<UpdateAirportForm />} /> 
             <Route path="/Airport/CreateAirport" element={<CreateAirport />} />
@@ -34,8 +36,8 @@ const App = () => {
             <Route path="/Plane/CreatePlane" element={<CreatePlane />} /> 
             <Route path="/Flight/UpdateFlightsForm/:id" element={<UpdateFlightsForm/>} /> 
             <Route path="/Flight/CreateFlight" element={<CreateFlight />} />
-            <Route path="/Passenger/CreatePassenger" element={<CreatePassenger />} /> 
-            <Route path="/Passenger/UpdatePassenger/:id" element={<UpdatePassenger />} /> 
+            <Route path="/Passengers/CreatePassengers" element={<CreatePassengers />} /> 
+            <Route path="/Passengers/UpdatePassenger/:id" element={<UpdatePassengers />} /> 
           </Routes>
         </div>
       </div>
